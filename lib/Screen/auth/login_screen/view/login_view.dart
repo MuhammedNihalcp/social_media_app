@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:social_media_app/Screen/auth/login_screen/controller/login_controller.dart';
+import 'package:social_media_app/Screen/auth/sign_up_screen/view/sign_up_view.dart';
 import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/core/const_style.dart';
 import 'package:social_media_app/util/TextFormFieldWidget/text_form_field_widget.dart';
@@ -138,19 +140,49 @@ class ScreenLogin extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image(
-                        width: width * 0.3,
-                        height: height * 0.1,
-                        image:
-                            const AssetImage('assets/images/google_logo.png'),
+                      InkWell(
+                        onTap: () {},
+                        child: Image(
+                          width: width * 0.3,
+                          height: height * 0.1,
+                          image:
+                              const AssetImage('assets/images/google_logo.png'),
+                        ),
                       ),
-                      Image(
-                        width: width * 0.3,
-                        height: height * 0.075,
-                        image:
-                            const AssetImage('assets/images/facebook_logo.png'),
+                      InkWell(
+                        onTap: () {},
+                        child: Image(
+                          width: width * 0.3,
+                          height: height * 0.075,
+                          image: const AssetImage(
+                              'assets/images/facebook_logo.png'),
+                        ),
                       ),
                     ],
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: "Don't have an account?",
+                      style: const TextStyle(
+                          color: colorWhith,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16),
+                      children: <TextSpan>[
+                        TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => ScreenSignUP(),
+                                  ),
+                                ),
+                          text: '   Sign Up',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: authbuttoncolor,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

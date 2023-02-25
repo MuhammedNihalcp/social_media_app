@@ -1,7 +1,9 @@
 import 'dart:developer';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:social_media_app/Screen/auth/login_screen/view/login_view.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_controller.dart';
 import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/core/const_style.dart';
@@ -82,7 +84,7 @@ class ScreenSignUP extends StatelessWidget {
                     keyboardType: TextInputType.name,
                     controller: value.passwordcontroller,
                     obscureText: value.obscureText,
-                    onPressed: (){
+                    onPressed: () {
                       value.visibility();
                     },
                     icon: value.icon,
@@ -173,16 +175,22 @@ class ScreenSignUP extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                           text: 'Already have an account?',
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: colorWhith,
                               fontWeight: FontWeight.w500,
                               fontSize: 16),
                           children: <TextSpan>[
                             TextSpan(
-                              text: 'Sign in',
-                              style: TextStyle(
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => ScreenLogin(),
+                                      ),
+                                    ),
+                              text: '   Sign in',
+                              style: const TextStyle(
                                 fontWeight: FontWeight.w500,
                                 color: authbuttoncolor,
                               ),

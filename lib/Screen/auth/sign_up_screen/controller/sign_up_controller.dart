@@ -63,21 +63,21 @@ class SignUPController extends ChangeNotifier {
   bool obscureText = true;
   Icon icon = const Icon(
     Icons.visibility_off,
-    color: colorBlack,
+    color: colorWhith,
   );
 
   void visibility() {
     if (obscureText == false) {
       icon = const Icon(
         Icons.visibility_off,
-        color: colorBlack,
+        color: colorWhith,
       );
       obscureText = true;
       notifyListeners();
     } else {
       icon = const Icon(
         Icons.visibility,
-        color: colorBlack,
+        color: colorWhith,
       );
       obscureText = false;
       notifyListeners();
