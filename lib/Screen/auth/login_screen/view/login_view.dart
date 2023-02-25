@@ -123,6 +123,8 @@ class ScreenLogin extends StatelessWidget {
                       style: authButtonTextStyle,
                     ),
                   ),
+
+                  Text('Or Sign in with ')
                 ],
               ),
             ),
