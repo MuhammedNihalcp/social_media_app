@@ -9,6 +9,7 @@ import 'package:social_media_app/Screen/auth/sign_up_screen/view/sign_up_view.da
 import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/core/const_style.dart';
 import 'package:social_media_app/util/TextFormFieldWidget/text_form_field_widget.dart';
+import 'package:social_media_app/util/auth_head_text/auth_head_text.dart';
 
 class ScreenLogin extends StatelessWidget {
   ScreenLogin({super.key});
@@ -32,13 +33,8 @@ class ScreenLogin extends StatelessWidget {
                   SizedBox(
                     height: height * 0.1,
                   ),
-                  Row(
-                    children: const [
-                      Text(
-                        'Login',
-                        style: authTextStyle,
-                      ),
-                    ],
+                  const AuthHeadText(
+                    text: 'Login',
                   ),
                   SizedBox(
                     height: height * 0.1,
