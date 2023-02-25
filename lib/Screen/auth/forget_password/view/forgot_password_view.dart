@@ -25,12 +25,12 @@ class ScreenForgotPassword extends StatelessWidget {
               SizedBox(
                 height: height * 0.1,
               ),
-              Text(
+              const Text(
                 'Mail Address Here',
                 style: TextStyle(
-                  color: colorWhith,
-                  fontWeight: FontWeight.bold,
-                fontSize: 22),
+                    color: colorWhith,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22),
               )
             ],
           ),
