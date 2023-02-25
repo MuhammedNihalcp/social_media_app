@@ -95,6 +95,49 @@ class ScreenSignUP extends StatelessWidget {
                     },
                   ),
                   kheight20,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Material(
+                        color: authbackgroundColor,
+                        child: Checkbox(
+                          checkColor: authbuttoncolor,
+                          fillColor: MaterialStateProperty.all(colorWhith),
+                          value: value.agree,
+                          onChanged: (values) {
+                            value.onChanged(values);
+                          },
+                        ),
+                      ),
+                      RichText(
+                        text: const TextSpan(
+                          text: 'I have Agree with ',
+                          style: TextStyle(
+                              color: colorWhith,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'privacy',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: authbuttoncolor,
+                              ),
+                            ),
+                            TextSpan(text: ' and '),
+                            TextSpan(
+                              text: 'policy',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: authbuttoncolor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  kheight20,
                   ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor:
@@ -111,7 +154,7 @@ class ScreenSignUP extends StatelessWidget {
                       ),
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          log('pressed');
+                          value.agree ? log('pressed') : log('illa');
                         }
                       },
                       child: const Text(

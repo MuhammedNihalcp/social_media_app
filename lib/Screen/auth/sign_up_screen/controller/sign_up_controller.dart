@@ -8,6 +8,13 @@ class SignUPController extends ChangeNotifier {
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController conformpasswordcontroller = TextEditingController();
 
+  bool agree = false;
+
+  void onChanged(bool? value) {
+    agree = value ?? false;
+    notifyListeners();
+  }
+
   String? usernameValidation(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter the username';
