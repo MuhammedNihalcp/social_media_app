@@ -8,6 +8,7 @@ import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_c
 import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/core/const_style.dart';
 import 'package:social_media_app/util/TextFormFieldWidget/text_form_field_widget.dart';
+import 'package:social_media_app/util/auth_head_text/auth_head_text.dart';
 
 class ScreenSignUP extends StatelessWidget {
   ScreenSignUP({super.key});
@@ -33,10 +34,7 @@ class ScreenSignUP extends StatelessWidget {
                   ),
                   Row(
                     children: const [
-                      Text(
-                        'Sign Up',
-                        style: authTextStyle,
-                      ),
+                      AuthHeadText(text: 'Sign Up'),
                     ],
                   ),
                   SizedBox(
