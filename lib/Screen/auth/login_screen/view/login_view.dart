@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:social_media_app/Screen/auth/forget_password/view/forgot_password_view.dart';
 import 'package:social_media_app/Screen/auth/login_screen/controller/login_controller.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/view/sign_up_view.dart';
 import 'package:social_media_app/core/const_color.dart';
@@ -88,7 +89,14 @@ class ScreenLogin extends StatelessWidget {
                       ),
                       Expanded(
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const ScreenForgotPassword(),
+                              ),
+                            );
+                          },
                           child: const Text(
                             'Forgot Password',
                             style: TextStyle(
