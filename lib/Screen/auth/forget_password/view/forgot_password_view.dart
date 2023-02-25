@@ -12,15 +12,28 @@ class ScreenForgotPassword extends StatelessWidget {
     return Scaffold(
       backgroundColor: authbackgroundColor,
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(
-              height: height * 0.1,
-            ),
-            const AuthHeadText(
-              text: 'Forgot Password',
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            children: [
+              SizedBox(
+                height: height * 0.1,
+              ),
+              const AuthHeadText(
+                text: 'Forgot Password',
+              ),
+              SizedBox(
+                height: height * 0.1,
+              ),
+              Text(
+                'Mail Address Here',
+                style: TextStyle(
+                  color: colorWhith,
+                  fontWeight: FontWeight.bold,
+                fontSize: 22),
+              )
+            ],
+          ),
         ),
       ),
     );
