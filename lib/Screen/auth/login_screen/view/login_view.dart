@@ -123,8 +123,35 @@ class ScreenLogin extends StatelessWidget {
                       style: authButtonTextStyle,
                     ),
                   ),
-
-                  Text('Or Sign in with ')
+                  SizedBox(
+                    height: height * 0.1,
+                  ),
+                  const Text(
+                    'Or Sign in with ',
+                    style: TextStyle(
+                      color: colorWhith,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                    ),
+                  ),
+                  kheight20,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(
+                        width: width * 0.3,
+                        height: height * 0.1,
+                        image:
+                            const AssetImage('assets/images/google_logo.png'),
+                      ),
+                      Image(
+                        width: width * 0.3,
+                        height: height * 0.075,
+                        image:
+                            const AssetImage('assets/images/facebook_logo.png'),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
