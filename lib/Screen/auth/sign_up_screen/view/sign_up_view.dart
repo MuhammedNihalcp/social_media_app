@@ -21,10 +21,21 @@ class ScreenSignUP extends StatelessWidget {
               'Sign Up',
               style: authTextStyle,
             ),
-            
+            Row(children: [TextFormFieldWidget()],)
           ],
         ),
       ),
     );
+  }
+}
+
+class TextFormFieldWidget extends StatelessWidget {
+  const TextFormFieldWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField();
   }
 }
