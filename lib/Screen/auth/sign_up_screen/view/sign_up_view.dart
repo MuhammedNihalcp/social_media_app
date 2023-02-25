@@ -81,6 +81,11 @@ class ScreenSignUP extends StatelessWidget {
                     labelText: 'Password',
                     keyboardType: TextInputType.name,
                     controller: value.passwordcontroller,
+                    obscureText: value.obscureText,
+                    onPressed: (){
+                      value.visibility();
+                    },
+                    icon: value.icon,
                     validator: (password) {
                       return value.passwordValdation(password);
                     },
