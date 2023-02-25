@@ -139,28 +139,54 @@ class ScreenSignUP extends StatelessWidget {
                   ),
                   kheight20,
                   ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(authbuttoncolor),
-                        fixedSize: MaterialStateProperty.all(
-                          Size(width * 0.8, height * 0.08),
-                        ),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(authbuttoncolor),
+                      fixedSize: MaterialStateProperty.all(
+                        Size(width * 0.8, height * 0.08),
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          value.agree ? log('pressed') : log('illa');
-                        }
-                      },
-                      child: const Text(
-                        'Sign Up',
-                        style: authButtonTextStyle,
-                      ))
+                    ),
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        value.agree ? log('pressed') : log('illa');
+                      }
+                    },
+                    child: const Text(
+                      'Sign Up',
+                      style: authButtonTextStyle,
+                    ),
+                  ),
+                  SizedBox(
+                    height: height * 0.05,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RichText(
+                        text: const TextSpan(
+                          text: 'Already have an account?',
+                          style: TextStyle(
+                              color: colorWhith,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'Sign in',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: authbuttoncolor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
