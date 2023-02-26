@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:social_media_app/Screen/auth/forget_password/view/widget/forgot_screens_head_text.dart';
 import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/util/auth_head_text/auth_head_text.dart';
 
@@ -25,12 +27,8 @@ class ScreenForgotPassword extends StatelessWidget {
               SizedBox(
                 height: height * 0.1,
               ),
-              const Text(
-                'Mail Address Here',
-                style: TextStyle(
-                    color: colorWhith,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22),
+              const ForgotScreensHeadText(
+                text: 'Mail Address Here',
               )
             ],
           ),
