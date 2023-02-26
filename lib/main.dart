@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:social_media_app/Screen/auth/forget_password/controller/forgot_password_controller.dart';
 import 'package:social_media_app/Screen/auth/login_screen/controller/login_controller.dart';
 import 'package:social_media_app/Screen/auth/login_screen/view/login_view.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_controller.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => SignUPController()),
         ChangeNotifierProvider(create: (context) => LoginController()),
+        ChangeNotifierProvider(create: (context) => ForgotController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
