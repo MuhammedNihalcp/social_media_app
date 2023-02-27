@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:social_media_app/Screen/auth/forget_password/controller/forgot_password_controller.dart';
 import 'package:social_media_app/Screen/auth/forget_password/view/widget/forgot_screens_head_text.dart';
+import 'package:social_media_app/Screen/auth/verification_screen/view/otp_view.dart';
 import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/core/const_style.dart';
 import 'package:social_media_app/util/TextFormFieldWidget/text_form_field_widget.dart';
@@ -79,6 +80,12 @@ class ScreenForgotPassword extends StatelessWidget {
                         if (formkey.currentState!.validate()) {
                           log('otp enabled');
                         }
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                OtpScreen(width: width, height: height),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Recover Password',
