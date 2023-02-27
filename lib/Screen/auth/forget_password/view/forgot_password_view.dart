@@ -21,69 +21,72 @@ class ScreenForgotPassword extends StatelessWidget {
     return Scaffold(
       backgroundColor: authbackgroundColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Consumer<ForgotController>(
-            builder: (context, value, child) => Form(
-              key: formkey,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: height * 0.1,
-                  ),
-                  const AuthHeadText(
-                    text: 'Forgot Password',
-                  ),
-                  SizedBox(
-                    height: height * 0.1,
-                  ),
-                  const ForgotScreensHeadText(
-                    text: 'Mail Address Here',
-                  ),
-                  kheight20,
-                  const Text(
-                    'Enter user email address associated with your account.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: colorWhith,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 17,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Consumer<ForgotController>(
+              builder: (context, value, child) => Form(
+                key: formkey,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: height * 0.1,
                     ),
-                  ),
-                  kheight20,
-                  TextFormFieldWidget(
-                    labelText: 'Email',
-                    keyboardType: TextInputType.emailAddress,
-                    controller: value.emailcontroller,
-                    validator: (email) {
-                      return value.emailValdation(email);
-                    },
-                  ),
-                  kheight20,
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(authbuttoncolor),
-                      fixedSize: MaterialStateProperty.all(
-                        Size(width * 0.8, height * 0.08),
+                    const AuthHeadText(
+                      text: 'Forgot Password',
+                    ),
+                    SizedBox(
+                      height: height * 0.1,
+                    ),
+                    const ForgotScreensHeadText(
+                      text: 'Mail Address Here',
+                    ),
+                    kheight20,
+                    const Text(
+                      'Enter user email address associated with your account.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: colorWhith,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 17,
                       ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                    ),
+                    kheight20,
+                    TextFormFieldWidget(
+                      labelText: 'Email',
+                      keyboardType: TextInputType.emailAddress,
+                      controller: value.emailcontroller,
+                      validator: (email) {
+                        return value.emailValdation(email);
+                      },
+                    ),
+                    kheight20,
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(authbuttoncolor),
+                        fixedSize: MaterialStateProperty.all(
+                          Size(width * 0.8, height * 0.08),
+                        ),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                         ),
                       ),
+                      onPressed: () {
+                        if (formkey.currentState!.validate()) {
+                          log('otp enabled');
+                        }
+                      },
+                      child: const Text(
+                        'Recover Password',
+                        style: authButtonTextStyle,
+                      ),
                     ),
-                    onPressed: () {
-                      if (formkey.currentState!.validate()) {
-                        log('otp enabled');
-                      }
-                    },
-                    child: const Text(
-                      'Recover Password',
-                      style: authButtonTextStyle,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
