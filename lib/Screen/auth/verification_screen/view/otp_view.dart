@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:provider/provider.dart';
 import 'package:social_media_app/Screen/auth/forget_password/view/widget/forgot_screens_head_text.dart';
+import 'package:social_media_app/Screen/auth/new_password/view/new_password_view.dart';
 import 'package:social_media_app/Screen/auth/verification_screen/controller/otp_controller.dart';
 import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/core/const_style.dart';
@@ -77,7 +78,7 @@ class OtpScreen extends StatelessWidget {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) =>
-                            OtpScreen(width: width, height: height),
+                            ScreenNewPassword(width: width, height: height),
                       ),
                     );
                   },
