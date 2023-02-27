@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:provider/provider.dart';
 import 'package:social_media_app/Screen/auth/forget_password/controller/forgot_password_controller.dart';
 import 'package:social_media_app/Screen/auth/forget_password/view/widget/forgot_screens_head_text.dart';
