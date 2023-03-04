@@ -1,0 +1,4 @@
+enum EnumOtpScreen {
+  forgotOtpScreen,
+  signupOtpScreen,
+}
