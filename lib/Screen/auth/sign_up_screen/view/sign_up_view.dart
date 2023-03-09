@@ -34,8 +34,18 @@ class ScreenSignUP extends StatelessWidget {
                     height: height * 0.1,
                   ),
                   Row(
-                    children: const [
-                      AuthHeadText(text: 'Sign Up'),
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: colorWhith,
+                        ),
+                      ),
+                      kwidth15,
+                      const AuthHeadText(text: 'Sign Up'),
                     ],
                   ),
                   SizedBox(
