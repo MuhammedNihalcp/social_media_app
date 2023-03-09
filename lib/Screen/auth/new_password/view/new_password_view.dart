@@ -35,7 +35,21 @@ class ScreenNewPassword extends StatelessWidget {
                   SizedBox(
                     height: height * 0.1,
                   ),
-                  const AuthHeadText(text: 'Reset Password'),
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: colorWhith,
+                        ),
+                      ),
+                      kwidth15,
+                      const AuthHeadText(text: 'Reset Password'),
+                    ],
+                  ),
                   SizedBox(
                     height: height * 0.1,
                   ),

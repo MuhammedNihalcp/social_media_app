@@ -31,7 +31,21 @@ class OtpScreen extends StatelessWidget {
                 SizedBox(
                   height: height * 0.1,
                 ),
-                const AuthHeadText(text: 'Email Verification'),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: colorWhith,
+                      ),
+                    ),
+                    kwidth15,
+                    const AuthHeadText(text: 'Email Verification'),
+                  ],
+                ),
                 SizedBox(
                   height: height * 0.1,
                 ),
