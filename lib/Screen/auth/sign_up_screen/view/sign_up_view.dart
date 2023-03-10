@@ -107,6 +107,7 @@ class ScreenSignUP extends StatelessWidget {
                     labelText: 'Conform Password',
                     keyboardType: TextInputType.name,
                     controller: value.conformpasswordcontroller,
+                    obscureText: value.obscureText,
                     validator: (conformpassword) {
                       return value.confirmpasswordValdation(conformpassword);
                     },
