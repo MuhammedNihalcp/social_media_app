@@ -80,6 +80,8 @@ class SignUPController extends ChangeNotifier {
     );
     if (res) {
       log('otp send');
+    } else {
+      log('otp not send');
     }
   }
 
