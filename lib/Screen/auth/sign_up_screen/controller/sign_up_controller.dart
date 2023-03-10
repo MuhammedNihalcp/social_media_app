@@ -19,6 +19,8 @@ class SignUPController extends ChangeNotifier {
   bool isLoading = false;
   final auth = FirebaseAuth.instance;
 
+  
+
   void addUser(BuildContext ctx) async {
     UserCredential authResult;
     isLoading = true;
@@ -73,9 +75,12 @@ class SignUPController extends ChangeNotifier {
   }
 
   void otpSend() async {
+    isLoading = true;
+    notifyListeners();
     EmailAuth emailAuth = EmailAuth(sessionName: "Test session");
+  //  emailAuth.config("server":"","serverKey":"",);
     var res = await emailAuth.sendOtp(
-      recipientMail: emailcontroller.text.trim(),
+      recipientMail: emailcontroller.text,
       otpLength: 4,
     );
     if (res) {
@@ -83,6 +88,8 @@ class SignUPController extends ChangeNotifier {
     } else {
       log('otp not send');
     }
+    isLoading = false;
+    notifyListeners();
   }
 
   void onChanged(bool? value) {

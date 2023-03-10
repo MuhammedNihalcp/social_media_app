@@ -170,7 +170,16 @@ class ScreenSignUP extends StatelessWidget {
                     ),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        value.agree ? value.addUser(context) : log('not agree');
+                        value.agree
+                            ? value.otpSend()
+                            : ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  backgroundColor: colorRed,
+                                  content: Text(
+                                    'Please Agree Privacy and Policy',
+                                  ),
+                                ),
+                              );
                       }
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
