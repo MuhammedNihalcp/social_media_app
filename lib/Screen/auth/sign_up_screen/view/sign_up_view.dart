@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -167,15 +168,15 @@ class ScreenSignUP extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      // if (formKey.currentState!.validate()) {
-                      //   value.agree ? log('pressed') : log('illa');
-                      // }
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              OtpScreen(width: width, height: height),
-                        ),
-                      );
+                      if (formKey.currentState!.validate()) {
+                        value.agree ? value.addUser(context) : log('not agree');
+                      }
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) =>
+                      //         OtpScreen(width: width, height: height),
+                      //   ),
+                      // );
                     },
                     child: const Text(
                       'Sign Up',

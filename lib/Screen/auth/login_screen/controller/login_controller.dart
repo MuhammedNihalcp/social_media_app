@@ -1,4 +1,9 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:social_media_app/Screen/auth/login_screen/model/login_model.dart';
 import 'package:social_media_app/core/const_color.dart';
 
 class LoginController extends ChangeNotifier {
@@ -6,6 +11,36 @@ class LoginController extends ChangeNotifier {
   TextEditingController passwordcontroller = TextEditingController();
 
   bool agree = false;
+
+  bool isLoading = false;
+
+  final auth = FirebaseAuth.instance;
+
+  void userSignIn() async {
+    UserCredential authResult;
+    isLoading = true;
+    notifyListeners();
+    SignInModel model = SignInModel(
+      email: emailcontroller.text.trim(),
+      password: passwordcontroller.text.trim(),
+    );
+    try {
+      authResult = await auth.signInWithEmailAndPassword(
+        email: model.email,
+        password: model.password,
+      );
+      isLoading = false;
+      notifyListeners();
+    } on PlatformException catch (error) {
+      log(error.message.toString());
+      isLoading = false;
+      notifyListeners();
+    } catch (error) {
+      log(error.toString());
+      isLoading = false;
+      notifyListeners();
+    }
+  }
 
   void onChanged(bool? value) {
     agree = value ?? false;

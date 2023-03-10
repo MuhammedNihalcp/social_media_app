@@ -14,10 +14,13 @@ class SignUPController extends ChangeNotifier {
   TextEditingController conformpasswordcontroller = TextEditingController();
 
   bool agree = false;
+  bool isLoading = false;
   final auth = FirebaseAuth.instance;
 
   void addUser(BuildContext ctx) async {
     UserCredential authResult;
+    isLoading = true;
+    notifyListeners();
     SignUpModel model = SignUpModel(
       email: emailcontroller.text.trim(),
       password: passwordcontroller.text.trim(),
@@ -27,16 +30,22 @@ class SignUPController extends ChangeNotifier {
         email: model.email,
         password: model.password,
       );
+      isLoading = false;
+      notifyListeners();
     } on PlatformException catch (error) {
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           content: Text(
-            error.toString(),
+            error.message.toString(),
           ),
         ),
       );
+      isLoading = false;
+      notifyListeners();
     } catch (error) {
       log(error.toString(), name: 'signuperror');
+      isLoading = false;
+      notifyListeners();
     }
   }
 
