@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/model/sign_up_model.dart';
 import 'package:social_media_app/core/const_color.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUPController extends ChangeNotifier {
   TextEditingController firstnamecontroller = TextEditingController();
@@ -22,6 +23,8 @@ class SignUPController extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     SignUpModel model = SignUpModel(
+      firstname: firstnamecontroller.text.trim(),
+      lastname: lastnamecontroller.text.trim(),
       email: emailcontroller.text.trim(),
       password: passwordcontroller.text.trim(),
     );
@@ -30,6 +33,15 @@ class SignUPController extends ChangeNotifier {
         email: model.email,
         password: model.password,
       );
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(authResult.user!.uid)
+          .set({
+        'firstname': model.firstname,
+        'lastname': model.lastname,
+        'email': model.email,
+        'password': model.password,
+      });
       isLoading = false;
       notifyListeners();
     } on PlatformException catch (error) {
