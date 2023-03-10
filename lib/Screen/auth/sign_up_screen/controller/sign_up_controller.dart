@@ -1,4 +1,9 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:social_media_app/Screen/auth/sign_up_screen/model/sign_up_model.dart';
 import 'package:social_media_app/core/const_color.dart';
 
 class SignUPController extends ChangeNotifier {
@@ -9,6 +14,31 @@ class SignUPController extends ChangeNotifier {
   TextEditingController conformpasswordcontroller = TextEditingController();
 
   bool agree = false;
+  final auth = FirebaseAuth.instance;
+
+  void addUser(BuildContext ctx) async {
+    UserCredential authResult;
+    SignUpModel model = SignUpModel(
+      email: emailcontroller.text.trim(),
+      password: passwordcontroller.text.trim(),
+    );
+    try {
+      authResult = await auth.createUserWithEmailAndPassword(
+        email: model.email,
+        password: model.password,
+      );
+    } on PlatformException catch (error) {
+      ScaffoldMessenger.of(ctx).showSnackBar(
+        SnackBar(
+          content: Text(
+            error.toString(),
+          ),
+        ),
+      );
+    } catch (error) {
+      log(error.toString(), name: 'signuperror');
+    }
+  }
 
   void onChanged(bool? value) {
     agree = value ?? false;
