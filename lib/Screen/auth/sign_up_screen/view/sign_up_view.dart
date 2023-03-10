@@ -10,6 +10,7 @@ import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/core/const_style.dart';
 import 'package:social_media_app/util/TextFormFieldWidget/text_form_field_widget.dart';
 import 'package:social_media_app/util/auth_head_text/auth_head_text.dart';
+import 'package:social_media_app/util/circular_indicator_widget/circular_indicator_widget.dart';
 
 class ScreenSignUP extends StatelessWidget {
   ScreenSignUP({super.key});
@@ -178,10 +179,12 @@ class ScreenSignUP extends StatelessWidget {
                       //   ),
                       // );
                     },
-                    child: const Text(
-                      'Sign Up',
-                      style: authButtonTextStyle,
-                    ),
+                    child: value.isLoading == true
+                        ? const CircularIndicatorWidget()
+                        : const Text(
+                            'Sign Up',
+                            style: authButtonTextStyle,
+                          ),
                   ),
                   SizedBox(
                     height: height * 0.05,

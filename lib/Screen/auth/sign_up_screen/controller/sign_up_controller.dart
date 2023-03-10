@@ -42,13 +42,15 @@ class SignUPController extends ChangeNotifier {
         'email': model.email,
         'password': model.password,
       });
+      disposetext();
       isLoading = false;
       notifyListeners();
     } on PlatformException catch (error) {
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
+          backgroundColor: colorWhith,
           content: Text(
-            error.message.toString(),
+            error.toString(),
           ),
         ),
       );
@@ -56,6 +58,14 @@ class SignUPController extends ChangeNotifier {
       notifyListeners();
     } catch (error) {
       log(error.toString(), name: 'signuperror');
+      ScaffoldMessenger.of(ctx).showSnackBar(
+        SnackBar(
+          backgroundColor: colorRed,
+          content: Text(
+            error.toString(),
+          ),
+        ),
+      );
       isLoading = false;
       notifyListeners();
     }
@@ -64,6 +74,14 @@ class SignUPController extends ChangeNotifier {
   void onChanged(bool? value) {
     agree = value ?? false;
     notifyListeners();
+  }
+
+  void disposetext() {
+    firstnamecontroller.clear();
+    lastnamecontroller.clear();
+    emailcontroller.clear();
+    passwordcontroller.clear();
+    conformpasswordcontroller.clear();
   }
 
   String? usernameValidation(String? value) {

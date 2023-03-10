@@ -11,6 +11,8 @@ import 'package:social_media_app/core/const_style.dart';
 import 'package:social_media_app/util/TextFormFieldWidget/text_form_field_widget.dart';
 import 'package:social_media_app/util/auth_head_text/auth_head_text.dart';
 
+import '../../../../util/circular_indicator_widget/circular_indicator_widget.dart';
+
 class ScreenLogin extends StatelessWidget {
   ScreenLogin({super.key});
   final formKey = GlobalKey<FormState>();
@@ -123,13 +125,15 @@ class ScreenLogin extends StatelessWidget {
                     ),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        value.agree ? log('pressed') : log('illa');
+                        value.agree ? value.userSignIn() : log('illa');
                       }
                     },
-                    child: const Text(
-                      'Login',
-                      style: authButtonTextStyle,
-                    ),
+                    child: value.isLoading == true
+                        ? const CircularIndicatorWidget()
+                        : const Text(
+                            'Login',
+                            style: authButtonTextStyle,
+                          ),
                   ),
                   SizedBox(
                     height: height * 0.1,
