@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:email_auth/email_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -68,6 +69,17 @@ class SignUPController extends ChangeNotifier {
       );
       isLoading = false;
       notifyListeners();
+    }
+  }
+
+  void otpSend() async {
+    EmailAuth emailAuth = EmailAuth(sessionName: "Test session");
+    var res = await emailAuth.sendOtp(
+      recipientMail: emailcontroller.text.trim(),
+      otpLength: 4,
+    );
+    if (res) {
+      log('otp send');
     }
   }
 
