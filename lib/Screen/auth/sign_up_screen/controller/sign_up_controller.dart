@@ -18,7 +18,7 @@ class SignUPController extends ChangeNotifier {
   bool agree = false;
   bool isLoading = false;
   final auth = FirebaseAuth.instance;
-
+  bool isEmailValidation = false;
   void addUser(BuildContext ctx) async {
     UserCredential authResult;
     isLoading = true;
@@ -34,6 +34,12 @@ class SignUPController extends ChangeNotifier {
         email: model.email,
         password: model.password,
       );
+      isEmailValidation = auth.currentUser!.emailVerified;
+
+      if (!isEmailValidation) {
+        sendVerificationEmail(ctx);
+      }
+      
       await FirebaseFirestore.instance
           .collection('users')
           .doc(authResult.user!.uid)
@@ -69,6 +75,22 @@ class SignUPController extends ChangeNotifier {
       );
       isLoading = false;
       notifyListeners();
+    }
+  }
+
+  Future<void> sendVerificationEmail(BuildContext context) async {
+    try {
+      final user = auth.currentUser!;
+      await user.sendEmailVerification();
+    } on FirebaseAuthException catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: colorRed,
+          content: Text(
+            error.message.toString(),
+          ),
+        ),
+      );
     }
   }
 

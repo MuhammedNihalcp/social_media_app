@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +9,7 @@ import 'package:social_media_app/Screen/auth/login_screen/view/login_view.dart';
 import 'package:social_media_app/Screen/auth/new_password/controller/new_password_controller.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_controller.dart';
 import 'package:social_media_app/Screen/auth/verification_screen/controller/otp_controller.dart';
+import 'package:social_media_app/Screen/home/view/home_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +40,16 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ScreenLogin(),
+        home: StreamBuilder<User?>(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ScreenHome();
+            } else {
+              return ScreenLogin();
+            }
+          },
+        ),
       ),
     );
   }
