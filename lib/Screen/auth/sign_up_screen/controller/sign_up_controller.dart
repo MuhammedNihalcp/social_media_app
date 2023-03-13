@@ -35,11 +35,12 @@ class SignUPController extends ChangeNotifier {
         password: model.password,
       );
       isEmailValidation = auth.currentUser!.emailVerified;
-
       if (!isEmailValidation) {
-        sendVerificationEmail(ctx);
+       await sendVerificationEmail(ctx);
+        isEmailValidation = auth.currentUser!.emailVerified;
+        notifyListeners();
       }
-      
+
       await FirebaseFirestore.instance
           .collection('users')
           .doc(authResult.user!.uid)
