@@ -46,12 +46,12 @@ class SignUPController extends ChangeNotifier {
       disposetext();
       isLoading = false;
       notifyListeners();
-    } on PlatformException catch (error) {
+    } on FirebaseAuthException catch (error) {
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
-          backgroundColor: colorWhith,
+          backgroundColor: colorRed,
           content: Text(
-            error.toString(),
+            error.message.toString(),
           ),
         ),
       );

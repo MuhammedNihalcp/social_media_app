@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:social_media_app/Screen/auth/login_screen/view/login_view.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_controller.dart';
 import 'package:social_media_app/Screen/auth/verification_screen/view/otp_view.dart';
+import 'package:social_media_app/Screen/home/view/home_view.dart';
 import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/core/const_style.dart';
 import 'package:social_media_app/util/TextFormFieldWidget/text_form_field_widget.dart';
@@ -172,7 +173,7 @@ class ScreenSignUP extends StatelessWidget {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         value.agree
-                            ? value.otpSend()
+                            ? value.addUser(context)
                             : ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   backgroundColor: colorRed,
@@ -182,12 +183,11 @@ class ScreenSignUP extends StatelessWidget {
                                 ),
                               );
                       }
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) =>
-                      //         OtpScreen(width: width, height: height),
-                      //   ),
-                      // );
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => ScreenHome(),
+                        ),
+                      );
                     },
                     child: value.isLoading == true
                         ? const CircularIndicatorWidget()
