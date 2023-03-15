@@ -9,16 +9,11 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Consumer<SignUPController>(
-        builder: (context, value, child) => value.isEmailValidation == false
-            ? SafeArea(
-                child: Center(
-                child: Text('Email Verification'),
-              ))
-            : SafeArea(
-                child: Center(
-                  child: Text('home page'),
-                ),
-              ),
+        builder: (context, value, child) => SafeArea(
+          child: Center(
+            child: Text('home page'),
+          ),
+        ),
       ),
     );
   }

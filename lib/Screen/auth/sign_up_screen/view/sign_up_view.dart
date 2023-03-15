@@ -183,11 +183,6 @@ class ScreenSignUP extends StatelessWidget {
                                 ),
                               );
                       }
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                            builder: (context) => ScreenHome(),
-                          ),
-                          (route) => false);
                     },
                     child: value.isLoading == true
                         ? const CircularIndicatorWidget()

@@ -8,6 +8,8 @@ import 'package:social_media_app/Screen/auth/sign_up_screen/model/sign_up_model.
 import 'package:social_media_app/core/const_color.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../../../home/view/home_view.dart';
+
 class SignUPController extends ChangeNotifier {
   TextEditingController firstnamecontroller = TextEditingController();
   TextEditingController lastnamecontroller = TextEditingController();
@@ -34,11 +36,17 @@ class SignUPController extends ChangeNotifier {
         email: model.email,
         password: model.password,
       );
-      isEmailValidation = auth.currentUser!.emailVerified;
-      if (!isEmailValidation) {
-       await sendVerificationEmail(ctx);
-        isEmailValidation = auth.currentUser!.emailVerified;
-        notifyListeners();
+      final user = auth.currentUser;
+      await user!.reload();
+      if (user.emailVerified) {
+        ScaffoldMessenger.of(ctx).showSnackBar(
+          const SnackBar(
+            backgroundColor: colorBlack,
+            content: Text(
+              'Your email is verified',
+            ),
+          ),
+        );
       }
 
       await FirebaseFirestore.instance
@@ -53,6 +61,12 @@ class SignUPController extends ChangeNotifier {
       disposetext();
       isLoading = false;
       notifyListeners();
+      Navigator.of(ctx).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) => ScreenHome(),
+        ),
+        (route) => false,
+      );
     } on FirebaseAuthException catch (error) {
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
@@ -79,21 +93,21 @@ class SignUPController extends ChangeNotifier {
     }
   }
 
-  Future<void> sendVerificationEmail(BuildContext context) async {
-    try {
-      final user = auth.currentUser!;
-      await user.sendEmailVerification();
-    } on FirebaseAuthException catch (error) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          backgroundColor: colorRed,
-          content: Text(
-            error.message.toString(),
-          ),
-        ),
-      );
-    }
-  }
+  // Future<void> sendVerificationEmail(BuildContext context) async {
+  //   try {
+  //     final user = auth.currentUser!;
+  //     await user.
+  //   } on FirebaseAuthException catch (error) {
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(
+  //         backgroundColor: colorRed,
+  //         content: Text(
+  //           error.message.toString(),
+  //         ),
+  //       ),
+  //     );
+  //   }
+  // }
 
   void otpSend() async {
     isLoading = true;
