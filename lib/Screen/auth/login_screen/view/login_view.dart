@@ -125,7 +125,16 @@ class ScreenLogin extends StatelessWidget {
                     ),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        value.agree ? value.userSignIn() : log('illa');
+                        value.agree
+                            ? value.userSignIn()
+                            : ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  backgroundColor: colorRed,
+                                  content: Text(
+                                    'Please Agree Remember me',
+                                  ),
+                                ),
+                              );
                       }
                     },
                     child: value.isLoading == true
