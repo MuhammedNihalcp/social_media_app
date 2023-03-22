@@ -15,12 +15,12 @@ class ScreenHome extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text('home page'),
+              const Text('home page'),
               TextButton(
                 onPressed: () {
                   FirebaseAuth.instance.signOut();
                 },
-                child: Text('Logout'),
+                child: const Text('Logout'),
               )
             ],
           ),
