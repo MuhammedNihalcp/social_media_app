@@ -29,3 +29,5 @@ const authButtonTextStyle = TextStyle(
   fontSize: 22,
   color: colorWhith,
 );
+
+const textwhitecolor = TextStyle(color: colorWhith);

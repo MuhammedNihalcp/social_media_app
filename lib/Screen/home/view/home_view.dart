@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_controller.dart';
+import 'package:social_media_app/Screen/home/view/widget/story_widget.dart';
 import 'package:social_media_app/core/const_color.dart';
 import 'package:social_media_app/core/const_style.dart';
 
@@ -42,33 +43,34 @@ class ScreenHome extends StatelessWidget {
         builder: (context, value, child) => SafeArea(
           child: Column(
             children: [
-              LimitedBox(
-                maxHeight: height * 0.2,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: List.generate(
-                    10,
-                    (index) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Column(
-                          children: const [
-                            CircleAvatar(
-                              radius: 30,
-                            ),
-                            kheight10,
-                            Text(
-                              'Nihal',
-                              style: TextStyle(
-                                color: colorWhith,
-                              ),
-                            )
-                          ],
+              HomeStoryWidget(height: height),
+              const Divider(
+                thickness: 1,
+                color: colorWhith,
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: const CircleAvatar(),
+                      title: const Text(
+                        'Nihal',
+                        style: textwhitecolor,
+                      ),
+                      subtitle: const Text(
+                        'Muhammed nihal cp',
+                        style: textwhitecolor,
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.more_vert_rounded,
+                          color: colorWhith,
                         ),
                       ),
                     ),
-                  ),
+                    Image(image: NetworkImage('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg'))
+                  ],
                 ),
               )
             ],
