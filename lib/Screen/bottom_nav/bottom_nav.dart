@@ -9,10 +9,18 @@ class BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        showUnselectedLabels: true,
+        showUnselectedLabels: false,
         showSelectedLabels: true,
-        
-        items: [],
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.slow_motion_video_rounded), label: 'Reels'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add_box_outlined), label: 'Add'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle), label: 'Profile')
+        ],
       ),
     );
   }
