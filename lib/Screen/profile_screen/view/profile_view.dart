@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
+import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_controller.dart';
 import 'package:social_media_app/core/const_color.dart';
 
 class ScreenProfile extends StatelessWidget {
@@ -8,12 +11,19 @@ class ScreenProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: authbackgroundColor,
-      body: SafeArea(
-          child: Center(
-        child: Text('Screen Profile'),
-      )),
+      body: Consumer<SignUPController>(builder: (context, value, child) {
+        return SafeArea(
+            child: Center(
+          child: TextButton(
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+            },
+            child: const Text('Logout'),
+          ),
+        ));
+      }),
     );
   }
 }
