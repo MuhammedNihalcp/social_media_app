@@ -14,10 +14,10 @@ class BottomNavContoller extends ChangeNotifier {
   }
 
   List<Widget> screens = [
-    ScreenHome(),
-    ScreenSearch(),
-    ScreenReels(),
-    ScreenPostAdd(),
-    ScreenProfile(),
+    const ScreenHome(),
+    const ScreenSearch(),
+    const ScreenReels(),
+    const ScreenPostAdd(),
+    const ScreenProfile(),
   ];
 }
