@@ -74,9 +74,46 @@ class ScreenHome extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Image(
-                        image: NetworkImage(
-                            'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg'))
+                    const Image(
+                      image: NetworkImage(
+                          'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg'),
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.favorite_border,
+                            color: colorWhith,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.comment_rounded,
+                            color: colorWhith,
+                          ),
+                        ),
+                        Transform.rotate(
+                          angle: -30 * pi / 180,
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.send,
+                              color: colorWhith,
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.bookmark_border,
+                            color: colorWhith,
+                          ),
+                        )
+                      ],
+                    )
                   ],
                 ),
               )
