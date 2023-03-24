@@ -30,13 +30,26 @@ class BottomNav extends StatelessWidget {
               label: 'Home',
               backgroundColor: authbuttoncolor,
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.slow_motion_video_rounded), label: 'Reels'),
+              icon: Icon(Icons.search),
+              label: 'Search',
+              backgroundColor: authbuttoncolor,
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add_box_outlined), label: 'Add'),
+              icon: Icon(Icons.slow_motion_video_rounded),
+              label: 'Reels',
+              backgroundColor: authbuttoncolor,
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle), label: 'Profile')
+              icon: Icon(Icons.add_box_outlined),
+              label: 'Add',
+              backgroundColor: authbuttoncolor,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              label: 'Profile',
+              backgroundColor: authbuttoncolor,
+            )
           ],
         );
       }),
