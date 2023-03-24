@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +13,28 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: authbackgroundColor,
+      appBar: AppBar(
+        title: const Text('Talky'),
+        backgroundColor: authbackgroundColor,
+        elevation: 0,
+        actions: [
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.favorite_border),
+              ),
+              Transform.rotate(
+                angle: -30 * pi / 180,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.send_rounded),
+                ),
+              )
+            ],
+          )
+        ],
+      ),
       body: Consumer<SignUPController>(
         builder: (context, value, child) => SafeArea(
           child: Column(
