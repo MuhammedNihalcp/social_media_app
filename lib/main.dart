@@ -10,6 +10,7 @@ import 'package:social_media_app/Screen/auth/new_password/controller/new_passwor
 import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_controller.dart';
 import 'package:social_media_app/Screen/auth/verification_screen/controller/otp_controller.dart';
 import 'package:social_media_app/Screen/bottom_nav/bottom_nav.dart';
+import 'package:social_media_app/Screen/bottom_nav/controller/bottom_nav_controller.dart';
 import 'package:social_media_app/Screen/home/view/home_view.dart';
 
 void main() async {
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ForgotController()),
         ChangeNotifierProvider(create: (context) => OtpController()),
         ChangeNotifierProvider(create: (context) => NewPasswordController()),
+        ChangeNotifierProvider(create: (context) => BottomNavContoller())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
