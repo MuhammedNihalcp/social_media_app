@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:dashed_circle/dashed_circle.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -52,7 +53,11 @@ class ScreenHome extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
-                      leading: const CircleAvatar(),
+                      leading: DashedCircle(
+                        color: authbuttoncolor,
+                        dashes: 2,
+                        child: const CircleAvatar(),
+                      ),
                       title: const Text(
                         'Nihal',
                         style: textwhitecolor,
@@ -69,7 +74,9 @@ class ScreenHome extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Image(image: NetworkImage('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg'))
+                    Image(
+                        image: NetworkImage(
+                            'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg'))
                   ],
                 ),
               )

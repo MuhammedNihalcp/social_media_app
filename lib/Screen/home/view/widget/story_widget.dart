@@ -27,7 +27,7 @@ class HomeStoryWidget extends StatelessWidget {
               child: Column(
                 children: [
                   DashedCircle(
-                    color: colorWhith,
+                    color: authbuttoncolor,
                     dashes: 10,
                     child: const CircleAvatar(
                       radius: 30,
