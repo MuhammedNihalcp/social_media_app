@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'const_color.dart';
 
@@ -31,3 +32,9 @@ const authButtonTextStyle = TextStyle(
 );
 
 const textwhitecolor = TextStyle(color: colorWhith);
+
+final apptittlestyle = GoogleFonts.lobster(
+  textStyle: const TextStyle(
+    color: colorWhith,
+  ),
+);

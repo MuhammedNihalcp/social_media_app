@@ -4,6 +4,7 @@ import 'package:dashed_circle/dashed_circle.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:readmore/readmore.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_controller.dart';
 import 'package:social_media_app/Screen/home/view/widget/story_widget.dart';
 import 'package:social_media_app/core/const_color.dart';
@@ -19,7 +20,10 @@ class ScreenHome extends StatelessWidget {
     return Scaffold(
       backgroundColor: authbackgroundColor,
       appBar: AppBar(
-        title: const Text('Talky'),
+        title: Text(
+          'Talky',
+          style: apptittlestyle,
+        ),
         backgroundColor: authbackgroundColor,
         elevation: 0,
         actions: [
@@ -113,7 +117,39 @@ class ScreenHome extends StatelessWidget {
                           ),
                         )
                       ],
-                    )
+                    ),
+                    Row(
+                      children: const [
+                        kwidth10,
+                        Text(
+                          '322 likes',
+                          style: textwhitecolor,
+                        ),
+                      ],
+                    ),
+                    kheight10,
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: ReadMoreText(
+                        'qwertyuiop[]asdfghjklzxcvbnm,qwertyuioasdfghjklzxcvbnmqwertyuiopasdfghjklcvbnmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq',
+                        style: textwhitecolor,
+                        trimLines: 2,
+                        colorClickableText: Colors.pink,
+                        trimMode: TrimMode.Line,
+                        trimCollapsedText: 'more',
+                        trimExpandedText: 'less',
+                        moreStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: colorWhith,
+                        ),
+                        lessStyle: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: colorWhith,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               )

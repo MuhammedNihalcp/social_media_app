@@ -44,6 +44,7 @@ dependencies:
   firebase_storage: ^11.0.14
   email_auth: 
   dashed_circle: ^0.0.2
+  readmore: ^2.2.0
 
 dev_dependencies:
   flutter_test:
