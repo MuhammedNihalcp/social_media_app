@@ -24,28 +24,32 @@ class BottomNav extends StatelessWidget {
           onTap: (index) {
             value.changeIndex(index);
           },
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
+              icon: Icon(
+                value.currentIndex == 0 ? Icons.home : Icons.home_outlined,
+              ),
               label: 'Home',
               backgroundColor: authbuttoncolor,
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.search),
               label: 'Search',
               backgroundColor: authbuttoncolor,
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.slow_motion_video_rounded),
               label: 'Reels',
               backgroundColor: authbuttoncolor,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.add_box_outlined),
+              icon: Icon(value.currentIndex == 3
+                  ? Icons.add_box_rounded
+                  : Icons.add_box_outlined),
               label: 'Add',
               backgroundColor: authbuttoncolor,
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),
               label: 'Profile',
               backgroundColor: authbuttoncolor,
