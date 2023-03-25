@@ -136,7 +136,7 @@ class ScreenHome extends StatelessWidget {
                           const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             child: ReadMoreText(
-                              'qwertyuiop[]asdfghjklzxcvbnm,qwertyuioasdfghjklzxcvbnmqwertyuiopasdfghjklcvbnmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq',
+                              'qwertyuiopasdfghjklzxcvbnm,qwertyuioasdfghjklzxcvbnmqwertyuiopasdfghjklcvbnmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq',
                               style: textwhitecolor,
                               trimLines: 2,
                               colorClickableText: Colors.pink,
