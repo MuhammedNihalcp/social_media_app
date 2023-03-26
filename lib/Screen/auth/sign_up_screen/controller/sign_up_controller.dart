@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:email_auth/email_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,6 +23,9 @@ class SignUPController extends ChangeNotifier {
   final auth = FirebaseAuth.instance;
   bool isEmailValidation = false;
   void addUser(BuildContext ctx) async {
+    if (Platform.isIOS) {
+      return null;
+    }
     UserCredential authResult;
     isLoading = true;
     notifyListeners();
