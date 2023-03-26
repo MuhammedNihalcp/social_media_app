@@ -31,6 +31,8 @@ class HomeStoryWidget extends StatelessWidget {
                     dashes: 10,
                     child: const CircleAvatar(
                       radius: 30,
+                      backgroundImage: NetworkImage(
+                          'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg'),
                     ),
                   ),
                   kheight10,

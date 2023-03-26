@@ -16,32 +16,28 @@ class ScreenSearch extends StatelessWidget {
     return Scaffold(
       backgroundColor: authbackgroundColor,
       body: SafeArea(
-        child: Consumer<SearchController>(builder: (context, value, child) {
-          return Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: CupertinoSearchTextField(
-                  prefixInsets:
-                      const EdgeInsetsDirectional.fromSTEB(10, 4, 5, 3),
-                  backgroundColor: const Color.fromARGB(82, 158, 158, 158),
-                  prefixIcon: const Icon(
-                    Icons.search,
-                    color: colorWhith,
+        child: Consumer<SearchController>(
+          builder: (context, value, child) {
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: CupertinoSearchTextField(
+                    prefixInsets:
+                        const EdgeInsetsDirectional.fromSTEB(10, 4, 5, 3),
+                    backgroundColor: const Color.fromARGB(82, 158, 158, 158),
+                    prefixIcon: const Icon(
+                      Icons.search,
+                      color: colorWhith,
+                    ),
+                    placeholderStyle: textwhitecolor,
+                    controller: value.searchcontroller,
                   ),
-                  placeholderStyle: textwhitecolor,
-                  controller: value.searchcontroller,
                 ),
-              ),
-              StaggeredGrid.count(
-                crossAxisCount: 3,
-                mainAxisSpacing: 4,
-                crossAxisSpacing: 4,
-
-              )
-            ],
-          );
-        }),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
