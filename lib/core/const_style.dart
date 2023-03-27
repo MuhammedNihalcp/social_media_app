@@ -34,7 +34,9 @@ const authButtonTextStyle = TextStyle(
 const textwhitecolor = TextStyle(color: colorWhith);
 
 final apptittlestyle = GoogleFonts.lobster(
+  fontSize: 30,
   textStyle: const TextStyle(
     color: colorWhith,
+    
   ),
 );
