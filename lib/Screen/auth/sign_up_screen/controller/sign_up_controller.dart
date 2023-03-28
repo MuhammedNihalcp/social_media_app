@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:email_auth/email_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/model/sign_up_model.dart';
 import 'package:social_media_app/core/const_color.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

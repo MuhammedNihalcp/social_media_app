@@ -1,10 +1,7 @@
 import 'dart:math';
 
-import 'package:dashed_circle/dashed_circle.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:readmore/readmore.dart';
 import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_controller.dart';
 import 'package:social_media_app/Screen/home/view/widget/home_post_widget.dart';
 import 'package:social_media_app/Screen/home/view/widget/story_widget.dart';

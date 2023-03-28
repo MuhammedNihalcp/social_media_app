@@ -1,11 +1,7 @@
 import 'dart:async';
-import 'dart:developer';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../auth/login_screen/view/login_view.dart';
-import '../../bottom_nav/bottom_nav.dart';
 
 class SplashController extends ChangeNotifier {
   void splashTimer() {

@@ -11,7 +11,6 @@ import 'package:social_media_app/Screen/auth/sign_up_screen/controller/sign_up_c
 import 'package:social_media_app/Screen/auth/verification_screen/controller/otp_controller.dart';
 import 'package:social_media_app/Screen/bottom_nav/bottom_nav.dart';
 import 'package:social_media_app/Screen/bottom_nav/controller/bottom_nav_controller.dart';
-import 'package:social_media_app/Screen/home/view/home_view.dart';
 import 'package:social_media_app/Screen/search_screen/controller/search_controller.dart';
 import 'package:social_media_app/Screen/splash_screen/controller/splash_controller.dart';
 import 'package:social_media_app/Screen/splash_screen/view/splash_view.dart';
