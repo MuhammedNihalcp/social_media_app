@@ -13,6 +13,7 @@ import 'package:social_media_app/Screen/bottom_nav/bottom_nav.dart';
 import 'package:social_media_app/Screen/bottom_nav/controller/bottom_nav_controller.dart';
 import 'package:social_media_app/Screen/home/view/home_view.dart';
 import 'package:social_media_app/Screen/search_screen/controller/search_controller.dart';
+import 'package:social_media_app/Screen/splash_screen/controller/splash_controller.dart';
 import 'package:social_media_app/Screen/splash_screen/view/splash_view.dart';
 
 void main() async {
@@ -38,26 +39,29 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => OtpController()),
         ChangeNotifierProvider(create: (context) => NewPasswordController()),
         ChangeNotifierProvider(create: (context) => BottomNavContoller()),
-        ChangeNotifierProvider(create: (context) => SearchController())
+        ChangeNotifierProvider(create: (context) => SearchController()),
+        ChangeNotifierProvider(create: (context) => SplashController())
       ],
       child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: ScreenSplash()
-          // StreamBuilder<User?>(
-          //   stream: FirebaseAuth.instance.authStateChanges(),
-          //   builder: (context, snapshot) {
-          //     if (snapshot.hasData) {
-          //       return const BottomNav();
-          //     } else {
-          //       return ScreenLogin();
-          //     }
-          //   },
-          // ),
-          ),
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: 
+        StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (BuildContext context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const ScreenSplash();
+              } else {
+                if (snapshot.hasData) {
+                  return const BottomNav();
+                }
+                return ScreenLogin();
+              }
+            }),
+      ),
     );
   }
 }
