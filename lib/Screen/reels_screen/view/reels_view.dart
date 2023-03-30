@@ -6,12 +6,15 @@ class ScreenReels extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    return Scaffold(
       backgroundColor: authbackgroundColor,
       body: SafeArea(
-          child: Center(
-        child: Text('Screen Reels'),
-      )),
+        child: Column(
+          children: [],
+        ),
+      ),
     );
   }
 }
