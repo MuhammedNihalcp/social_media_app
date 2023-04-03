@@ -13,9 +13,12 @@ class ScreenReels extends StatelessWidget {
       backgroundColor: authbackgroundColor,
       body: SafeArea(
         child: PageView(
+          scrollDirection: Axis.vertical,
           children: List.generate(
             10,
-            (index) => VideoListItem(),
+            (index) => VideoListItem(
+              index: index,
+            ),
           ),
         ),
       ),
