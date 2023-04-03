@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media_app/Screen/reels_screen/view/widget/video_list_item.dart';
 import 'package:social_media_app/core/const_color.dart';
 
 class ScreenReels extends StatelessWidget {
@@ -11,8 +12,11 @@ class ScreenReels extends StatelessWidget {
     return Scaffold(
       backgroundColor: authbackgroundColor,
       body: SafeArea(
-        child: Column(
-          children: [],
+        child: PageView(
+          children: List.generate(
+            10,
+            (index) => VideoListItem(),
+          ),
         ),
       ),
     );
